@@ -1,0 +1,19 @@
+m = 0
+n = 5
+bon = False
+for i in range(n):
+    module = str(input(f"Veuillez entrer la note du module {i} et le coefficient correspondant : "))
+    module2 = module.split(" ")
+    note = module2[0]
+    coeff = module2[1]
+    if note >= 8:
+        bon = True
+    else:
+        bon = False
+    m += note * coeff
+
+print(f"La moyenne est de {m}")
+if 10 < m <= 20 and bon == True:
+    print("Admis")
+else:
+    print("Pas admis")
