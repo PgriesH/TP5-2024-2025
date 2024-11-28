@@ -1,0 +1,19 @@
+nom1 = str(input("Entrez le Nom 1 : "))
+nom2 = str(input("Entrez le Nom 2 : "))
+prenom1 = str(input("Entrez le prénom 1 : "))
+prenom2 = str(input("Entrez le prénom 2 : "))
+
+nom1 = str.upper(nom1)
+nom2 = str.upper(nom2)
+prenom1 = str.capitalize(prenom1)
+prenom2 = str.capitalize(prenom2)
+
+if nom1 > nom2:
+    print(f"{nom1} {prenom1}")
+    print(f"{nom2} {prenom2}")
+    if prenom1 < prenom2:
+        print(f"{nom2} {prenom2}")
+        print(f"{nom1} {prenom1}")
+else:
+    print(f"{nom2} {prenom2}")
+    print(f"{nom1} {prenom1}")
