@@ -1,0 +1,38 @@
+import os
+from datetime import datetime
+
+def verifier_fichier(fichier):
+    if os.path.isfile(fichier):
+        taille = os.path.getsize(fichier)
+        date_modification = datetime.fromtimestamp(os.path.getmtime(fichier))
+        return (True, taille, date_modification)
+    else:
+        return (False, None, None)
+
+fichier1 = input("Entrez le chemin du premier fichier : ")
+fichier2 = input("Entrez le chemin du deuxième fichier : ")
+
+resultat1 = verifier_fichier(fichier1)
+resultat2 = verifier_fichier(fichier2)
+
+if resultat1[0]:
+    print(f"Fichier 1 : '{fichier1}'")
+    print(f"  - Taille : {resultat1[1]} octets")
+    print(f"  - Date de modification : {resultat1[2]}")
+else:
+    print(f"Fichier 1 : '{fichier1}' n'existe pas.")
+
+if resultat2[0]:
+    print(f"Fichier 2 : '{fichier2}'")
+    print(f"  - Taille : {resultat2[1]} octets")
+    print(f"  - Date de modification : {resultat2[2]}")
+else:
+    print(f"Fichier 2 : '{fichier2}' n'existe pas.")
+
+if resultat1[0] and resultat2[0]:
+    if resultat1[2] > resultat2[2]:
+        print(f"Le fichier le plus récent est : '{fichier1}' (modifié le {resultat1[2]}).")
+    elif resultat1[2] < resultat2[2]:
+        print(f"Le fichier le plus récent est : '{fichier2}' (modifié le {resultat2[2]}).")
+    else:
+        print("Les deux fichiers ont été modifiés à la même date.")
