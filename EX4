@@ -1,0 +1,21 @@
+somme = int(input("Entrez une somme d'argent (en euros) : "))
+
+billets_pieces = [100, 50, 10, 2, 1]
+
+decomposition = {}
+
+reste = somme
+for valeur in billets_pieces:
+    decomposition[valeur] = reste // valeur  # Nombre de billets/pièces de cette valeur
+    reste = reste % valeur  # Reste à traiter
+
+print(f"{somme} euros, c’est donc ", end="")
+resultats = []
+for valeur in billets_pieces:
+    quantite = decomposition[valeur]
+    if valeur >= 10:
+        resultats.append(f"{quantite} billets de {valeur}")
+    else:
+        resultats.append(f"{quantite} pièces de {valeur}")
+
+print(", ".join(resultats) + ".")
